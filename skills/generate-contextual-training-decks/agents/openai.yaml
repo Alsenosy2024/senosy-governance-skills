@@ -1,0 +1,4 @@
+interface:
+  display_name: "عروض تدريبية سياقية"
+  short_description: "عروض عربية متنوعة بمزود AI قابل للتبديل"
+  default_prompt: "Use $generate-contextual-training-decks to turn this training brief into a varied Arabic RTL PowerPoint deck."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "ضغط العروض التنفيذية العربية"
+  short_description: "ضغط عروض PowerPoint العربية باحتراف ووضوح"
+  default_prompt: "استخدم $compress-arabic-executive-decks لتحويل هذا العرض العربي إلى نسخة تنفيذية مركزة وأنيقة."

@@ -1,0 +1,39 @@
+{
+  "codex_cli": {
+    "provider": "codex_cli",
+    "model": "",
+    "timeout_seconds": 600,
+    "max_retries": 0
+  },
+  "openai_compatible": {
+    "provider": "openai_compatible",
+    "model": "YOUR_MODEL_ID",
+    "base_url": "https://YOUR_HOST/v1",
+    "api_key_env": "YOUR_PROVIDER_API_KEY",
+    "timeout_seconds": 240,
+    "max_retries": 2,
+    "extra_headers": {}
+  },
+  "gemini": {
+    "provider": "gemini",
+    "model": "YOUR_GEMINI_MODEL",
+    "base_url": "https://generativelanguage.googleapis.com",
+    "api_key_env": "GEMINI_API_KEY",
+    "timeout_seconds": 240,
+    "max_retries": 2
+  },
+  "anthropic": {
+    "provider": "anthropic",
+    "model": "YOUR_CLAUDE_MODEL",
+    "base_url": "https://api.anthropic.com",
+    "api_key_env": "ANTHROPIC_API_KEY",
+    "timeout_seconds": 240,
+    "max_retries": 2
+  },
+  "command": {
+    "provider": "command",
+    "command": ["/absolute/path/to/your-provider-adapter"],
+    "timeout_seconds": 300
+  }
+}
+

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="استوديو محلي لبناء عروض تدريبية عربية طويلة ومتنوعة بصرياً.">
+  <title>استوديو بناء العروض</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="استوديو بناء العروض">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span><b>استوديو العروض</b><small>LOCAL DECK SYSTEM · 01</small></span>
+    </a>
+    <div class="top-meta"><span class="pulse"></span> يعمل محليًا على جهازك</div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="kicker">من محاور البرنامج إلى ملف PowerPoint</p>
+      <h1>ابنِ عرضًا طويلًا<br><em>منظمًا، لا مكررًا.</em></h1>
+      <p class="hero-copy">خطّط من 50 إلى 200 شريحة، وزّعها على الوحدات، وغيّر النظام البصري حسب معنى المحتوى—مع ملاحظات ميسّر وفحص جودة.</p>
+      <div class="hero-stats" aria-label="إمكانات الاستوديو">
+        <span><b>50–200</b> شريحة</span>
+        <span><b>05</b> أنظمة بصرية</span>
+        <span><b>06</b> مسارات AI</span>
+      </div>
+    </section>
+
+    <div class="workspace">
+      <form id="deck-form" class="editor" novalidate>
+        <section class="panel section-numbered" data-number="01">
+          <div class="section-head">
+            <div><p class="eyebrow">هوية البرنامج</p><h2>ما الذي نبنيه؟</h2></div>
+            <p>المدخلات التي تثبّت الجمهور والسياق وناتج الأداء.</p>
+          </div>
+          <div class="field-grid">
+            <label class="field span-2"><span>اسم البرنامج</span><input name="title" required value="مختبر اتخاذ القرار للمشروعات" maxlength="220"></label>
+            <label class="field span-2"><span>العنوان الفرعي</span><input name="subtitle" value="من التشخيص إلى قرار قابل للتنفيذ" maxlength="300"></label>
+            <label class="field"><span>الجمهور</span><input name="audience" required value="مديرو المشروعات وقادة فرق التنفيذ" maxlength="400"></label>
+            <label class="field"><span>القطاع / السياق</span><input name="sector" value="الخدمات المهنية" maxlength="180"></label>
+            <label class="field"><span>مدة البرنامج بالساعات</span><input name="duration_hours" type="number" min="1" max="100" step="0.5" value="10"></label>
+            <label class="field"><span>ملف PDF إضافي</span><select name="render_pdf"><option value="false">لا — PowerPoint فقط</option><option value="true">نعم، إذا توفر LibreOffice</option></select></label>
+            <label class="field span-2"><span>نواتج التعلم — كل ناتج في سطر</span><textarea name="objectives" rows="4">تشخيص الموقف قبل اختيار الأداة
+بناء بدائل ومفاضلة قابلة للمراجعة
+تحويل القرار إلى خطة تنفيذ ومؤشر متابعة</textarea></label>
+            <label class="field span-2"><span>مصادر أو ملاحظات مرجعية — اختياري</span><textarea name="sources" rows="3" placeholder="روابط، أسماء وثائق، أو ملاحظات لا ينبغي للنموذج تجاوزها"></textarea></label>
+          </div>
+        </section>
+
+        <section class="panel section-numbered" data-number="02">
+          <div class="section-head">
+            <div><p class="eyebrow">معمار المحتوى</p><h2>المحاور والأوزان</h2></div>
+            <button class="ghost-btn" id="add-axis" type="button">+ إضافة محور</button>
+          </div>
+          <div id="axes" class="axes"></div>
+          <template id="axis-template">
+            <article class="axis-row">
+              <div class="axis-index" aria-hidden="true">01</div>
+              <label class="field"><span>عنوان المحور</span><input class="axis-title" required maxlength="160"></label>
+              <label class="field axis-detail"><span>تفاصيله وما الذي يجب أن يغطيه</span><textarea class="axis-details" rows="2" maxlength="1200"></textarea></label>
+              <label class="field axis-weight"><span>الوزن</span><input class="axis-weight-input" type="number" min="0.1" max="10" step="0.1" value="1"></label>
+              <button class="icon-btn remove-axis" type="button" title="حذف المحور" aria-label="حذف المحور">×</button>
+            </article>
+          </template>
+        </section>
+
+        <section class="panel section-numbered" data-number="03">
+          <div class="section-head">
+            <div><p class="eyebrow">حجم الإنتاج</p><h2>طول العرض</h2></div>
+            <output id="slide-output" for="slide-count">80 شريحة</output>
+          </div>
+          <div class="range-wrap">
+            <input id="slide-count" name="slide_count" type="range" min="50" max="200" step="5" value="80">
+            <div class="range-scale"><span>50<br><small>مركّز</small></span><span>100<br><small>برنامج</small></span><span>150<br><small>موسّع</small></span><span>200<br><small>مرجعي</small></span></div>
+          </div>
+        </section>
+
+        <section class="panel section-numbered" data-number="04">
+          <div class="section-head">
+            <div><p class="eyebrow">النظام البصري</p><h2>الثيم وطريقة التبديل</h2></div>
+            <p>التبديل يتم على مستوى الوحدة، لا على مستوى كل شريحة.</p>
+          </div>
+          <div id="themes" class="theme-grid" role="radiogroup" aria-label="اختر الثيم الأساسي"></div>
+          <label class="field strategy"><span>استراتيجية الثيمات</span><select name="theme_strategy"><option value="contextual">سياقية — حسب معنى المحور</option><option value="alternating">متناوبة — بين الوحدات</option><option value="single">موحّدة — ثيم واحد</option></select></label>
+        </section>
+
+        <section class="panel section-numbered" data-number="05">
+          <div class="section-head">
+            <div><p class="eyebrow">محرك المحتوى</p><h2>من سيكتب الشرائح؟</h2></div>
+            <p>لا تُحفظ المفاتيح؛ اكتب اسم متغير البيئة فقط.</p>
+          </div>
+          <div class="mode-toggle" role="radiogroup" aria-label="وضع التوليد">
+            <label><input type="radio" name="mode" value="demo" checked><span><b>تجريبي محلي</b><small>يبني عرضًا كاملًا بلا اتصال</small></span></label>
+            <label><input type="radio" name="mode" value="ai"><span><b>توليد بالذكاء الاصطناعي</b><small>وحدة وراء وحدة عبر مزودك</small></span></label>
+          </div>
+          <div id="provider-panel" class="provider-panel" hidden>
+            <div class="field-grid">
+              <label class="field"><span>المزود</span><select id="provider-kind"><option value="codex_cli">Codex CLI — تسجيل الدخول المحلي</option><option value="openai_compatible">OpenAI-compatible / GLM / Kimi</option><option value="gemini">Gemini API</option><option value="anthropic">Claude API</option><option value="command">أمر مخصص</option></select></label>
+              <label class="field"><span>اسم النموذج</span><input id="provider-model" placeholder="مثال: اسم النموذج لدى مزودك"></label>
+              <label class="field provider-http"><span>Base URL</span><input id="provider-base" placeholder="https://api.example.com/v1"></label>
+              <label class="field provider-http"><span>اسم متغير المفتاح</span><input id="provider-env" placeholder="PROVIDER_API_KEY"></label>
+              <label class="field provider-command" hidden><span>الأمر — JSON array</span><input id="provider-command" placeholder='["python", "adapter.py"]'></label>
+              <label class="field"><span>مهلة الوحدة بالثواني</span><input id="provider-timeout" type="number" min="5" max="1800" value="300"></label>
+            </div>
+            <p class="security-note"><span>✦</span> شغّل الخادم من Terminal بعد تعريف المفتاح في البيئة. الواجهة لا تستقبل قيمة المفتاح ولا تكتبها في ملفات المشروع.</p>
+          </div>
+        </section>
+
+        <div class="actions">
+          <button id="preview-btn" class="secondary-btn" type="button">معاينة المعمار</button>
+          <button id="generate-btn" class="primary-btn" type="submit"><span>ابدأ بناء العرض</span><b>↗</b></button>
+        </div>
+        <p id="form-error" class="error-message" role="alert" hidden></p>
+      </form>
+
+      <aside class="production-rail" aria-label="معاينة الإنتاج">
+        <div class="rail-sticky">
+          <p class="eyebrow">PRODUCTION MAP</p>
+          <h2>خريطة العرض</h2>
+          <div id="preview-empty" class="preview-empty"><span>↙</span><p>اضغط «معاينة المعمار» لرؤية توزيع الشرائح والثيمات قبل التوليد.</p></div>
+          <div id="preview-result" hidden>
+            <div class="preview-total"><strong id="preview-count">80</strong><span>شريحة<br>مخططة</span></div>
+            <div id="module-map" class="module-map"></div>
+            <p id="call-estimate" class="call-estimate"></p>
+          </div>
+
+          <div id="job-card" class="job-card" hidden>
+            <div class="job-head"><span id="job-status">قيد الانتظار</span><b id="job-percent">0%</b></div>
+            <div class="progress-track"><i id="progress-bar"></i></div>
+            <h3 id="job-message">تم استلام الطلب</h3>
+            <ol id="job-logs" class="job-logs"></ol>
+            <div id="downloads" class="downloads"></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer><span>CONTEXTUAL DECK STUDIO</span><span>المحتوى يحدد الشكل — والهوية تضبطه</span></footer>
+  <script src="/app.js" defer></script>
+</body>
+</html>

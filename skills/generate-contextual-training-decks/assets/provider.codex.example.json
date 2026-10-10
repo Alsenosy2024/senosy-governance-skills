@@ -1,0 +1,7 @@
+{
+  "provider": "codex_cli",
+  "model": "",
+  "timeout_seconds": 600,
+  "max_retries": 0
+}
+

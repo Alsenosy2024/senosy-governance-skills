@@ -1,0 +1,4 @@
+interface:
+  display_name: "دراسة جدوى نهائية معمقة"
+  short_description: "دراسة نهائية موثقة ومدققة لقرار استثماري"
+  default_prompt: "Use $investment-feasibility-study to produce a complete, deep-researched final feasibility study with verified evidence and a reconciled financial model."

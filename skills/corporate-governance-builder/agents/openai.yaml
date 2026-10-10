@@ -1,0 +1,4 @@
+interface:
+  display_name: "Corporate Governance Builder"
+  short_description: "Build full corporate governance frameworks end to end."
+  default_prompt: "Use this skill to build a complete corporate governance framework for a company, from current-state assessment through operating model, organization structure, authorities, policies, procedures, KPIs, controls, rollout, and governance review."

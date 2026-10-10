@@ -1,0 +1,4 @@
+interface:
+  display_name: "حقائب تدريبية عربية"
+  short_description: "يبني حقائب تدريبية عربية متقنة في PowerPoint"
+  default_prompt: "استخدم $build-arabic-training-decks لإنشاء حقيبة تدريبية عربية احترافية في PowerPoint عن [الموضوع]."
